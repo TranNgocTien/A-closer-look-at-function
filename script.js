@@ -87,3 +87,14 @@ console.log(swiss);
 const flightData=[522,'Mary Cooper'];
 book.apply(swiss, flightData);
 book.call(eurowings,...flightData);
+
+const bookEW=book.bind(eurowings);
+bookEW(905,'Mary Cooper');
+
+lufthansa.planes=300;
+lufthansa.buyPlane= function(){
+    console.log(this);
+    this.planes++;
+    console.log(this.planes);
+}
+document.querySelector('.buy').addEventListener('click',lufthansa.buyPlane.bind(lufthansa));
